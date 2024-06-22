@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_date_app/helpful_methods/general_methods.dart';
 import 'package:note_date_app/screens/main_screen.dart';
 
 void main() {
@@ -10,8 +11,10 @@ class NoteDateApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MainScreen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: buildThemeData(),
+      home: const MainScreen(),
     );
   }
 }

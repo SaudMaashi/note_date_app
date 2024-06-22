@@ -4,8 +4,8 @@ import 'package:note_date_app/utilities/constants.dart';
 ThemeData buildThemeData() {
   return ThemeData(
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(fontFamily: "PlayfairDisplay", fontSize: 16),
-      bodyMedium: TextStyle(fontFamily: "PlayfairDisplay", fontSize: 16),
+      bodyLarge: TextStyle(fontFamily: "RobotoCondensed", fontSize: 16),
+      bodyMedium: TextStyle(fontFamily: "RobotoCondensed", fontSize: 16),
     ).apply(
       bodyColor: secondaryColor,
     ),
