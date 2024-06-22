@@ -18,7 +18,7 @@ class StorageAdapter extends TypeAdapter<Storage> {
     };
     return Storage(
       title: fields[0] as String,
-      note: fields[2] as String,
+      note: fields[1] as String,
     );
   }
 
@@ -28,7 +28,7 @@ class StorageAdapter extends TypeAdapter<Storage> {
       ..writeByte(2)
       ..writeByte(0)
       ..write(obj.title)
-      ..writeByte(2)
+      ..writeByte(1)
       ..write(obj.note);
   }
 

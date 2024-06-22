@@ -3,6 +3,7 @@ import 'package:note_date_app/utilities/constants.dart';
 
 class AddNoteButton extends StatelessWidget {
   final Function() onPressed;
+
   const AddNoteButton({
     super.key,
     required this.onPressed,

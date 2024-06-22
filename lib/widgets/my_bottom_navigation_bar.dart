@@ -14,10 +14,11 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: Provider.of<MyProvider>(context).index,
+      currentIndex: Provider.of<MyProvider>(context).bottomNavigationBarIndex,
       onTap: (value) {
         setState(() {
-          Provider.of<MyProvider>(context, listen: false).index = value;
+          Provider.of<MyProvider>(context, listen: false)
+              .bottomNavigationBarIndex = value;
         });
       },
       backgroundColor: backgroundColor,

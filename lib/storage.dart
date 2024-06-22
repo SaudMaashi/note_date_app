@@ -10,6 +10,6 @@ class Storage {
   });
   @HiveField(0)
   String title;
-  @HiveField(2)
+  @HiveField(1)
   String note;
 }
