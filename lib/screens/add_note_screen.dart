@@ -6,24 +6,6 @@ import 'package:note_date_app/widgets/my_bottom_navigation_bar.dart';
 import 'package:note_date_app/widgets/my_search_bar.dart';
 import 'package:note_date_app/widgets/notes_list_view.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({
-    super.key,
-  });
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return const SafeArea(
-      child: AddNoteScreen(),
-    );
-  }
-}
-
 class AddNoteScreen extends StatefulWidget {
   const AddNoteScreen({
     super.key,
