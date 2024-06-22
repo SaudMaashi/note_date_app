@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:note_date_app/utilities/constants.dart';
 
 class AddNoteButton extends StatelessWidget {
+  final Function() onPressed;
   const AddNoteButton({
     super.key,
+    required this.onPressed,
   });
 
   @override
@@ -14,7 +16,7 @@ class AddNoteButton extends StatelessWidget {
       child: MaterialButton(
         height: 30,
         minWidth: 50,
-        onPressed: () {},
+        onPressed: onPressed,
         child: const Icon(Icons.add, color: secondaryColor),
       ),
     );

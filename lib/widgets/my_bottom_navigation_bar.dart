@@ -1,11 +1,10 @@
-// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
-
 import 'package:flutter/material.dart';
+import 'package:note_date_app/providers/providers.dart';
 import 'package:note_date_app/utilities/constants.dart';
+import 'package:provider/provider.dart';
 
 class MyBottomNavigationBar extends StatefulWidget {
-  var index;
-  MyBottomNavigationBar({super.key, required this.index});
+  const MyBottomNavigationBar({super.key});
 
   @override
   State<MyBottomNavigationBar> createState() => _MyBottomNavigationBarState();
@@ -15,10 +14,10 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: widget.index,
+      currentIndex: Provider.of<MyProvider>(context).index,
       onTap: (value) {
         setState(() {
-          widget.index = value;
+          Provider.of<MyProvider>(context, listen: false).index = value;
         });
       },
       backgroundColor: backgroundColor,

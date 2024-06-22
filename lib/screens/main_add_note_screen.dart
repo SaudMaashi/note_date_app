@@ -7,34 +7,16 @@ import 'package:note_date_app/widgets/my_search_bar.dart';
 import 'package:note_date_app/widgets/notes_list_view.dart';
 import 'package:provider/provider.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({
+class MainAddNoteScreen extends StatefulWidget {
+  const MainAddNoteScreen({
     super.key,
   });
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<MainAddNoteScreen> createState() => _MainAddNoteScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return const SafeArea(
-      child: AddNoteScreen(),
-    );
-  }
-}
-
-class AddNoteScreen extends StatefulWidget {
-  const AddNoteScreen({
-    super.key,
-  });
-
-  @override
-  State<AddNoteScreen> createState() => _AddNoteScreenState();
-}
-
-class _AddNoteScreenState extends State<AddNoteScreen> {
+class _MainAddNoteScreenState extends State<MainAddNoteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

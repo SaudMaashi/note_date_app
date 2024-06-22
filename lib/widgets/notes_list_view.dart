@@ -1,10 +1,8 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
+import 'package:note_date_app/utilities/constants.dart';
 
 class NotesListView extends StatefulWidget {
-  var index = 0;
-  NotesListView({
+  const NotesListView({
     super.key,
     required int index,
   });
@@ -33,7 +31,45 @@ class NoteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         height: 84,
-        width: MediaQuery.of(context).size.width * 0.1,
-        child: const Card());
+        child: Card(
+          child: ListTile(
+            title: const Text("Hi"),
+            subtitle: const Text("Hello"),
+            trailing: PopupMenuButton(
+              color: secondaryColor,
+              itemBuilder: (context) => [
+                const PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: [
+                      Icon(Icons.edit),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("Edit")
+                    ],
+                  ),
+                ),
+                const PopupMenuItem(
+                  value: 2,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.delete,
+                        color: Colors.red,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("Delete")
+                    ],
+                  ),
+                ),
+              ],
+              offset: const Offset(0, 50),
+              elevation: 2,
+            ),
+          ),
+        ));
   }
 }
