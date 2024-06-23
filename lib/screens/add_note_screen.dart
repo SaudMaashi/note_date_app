@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:note_date_app/box/box.dart';
-import 'package:note_date_app/providers/providers.dart';
 import 'package:note_date_app/screens/sub_add_note_screen.dart';
-import 'package:note_date_app/storage.dart';
 import 'package:note_date_app/widgets/add_note_button.dart';
 import 'package:note_date_app/widgets/my_search_bar.dart';
 import 'package:note_date_app/widgets/notes_list_view.dart';
-import 'package:provider/provider.dart';
 
 class AddNoteScreen extends StatefulWidget {
   const AddNoteScreen({

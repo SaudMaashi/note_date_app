@@ -11,7 +11,10 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(StorageAdapter());
   storageBox = await Hive.openBox<Storage>("Mr");
-  runApp(const NoteDateApp());
+  runApp(ChangeNotifierProvider<MyProvider>(
+      create: (BuildContext context) => MyProvider(),
+      child: ChangeNotifierProvider(
+          create: (context) => MyProvider(), child: const NoteDateApp())));
 }
 
 class NoteDateApp extends StatelessWidget {
@@ -19,13 +22,10 @@ class NoteDateApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyProvider(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: buildThemeData(),
-        home: const MainScreen(),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: buildThemeData(),
+      home: const MainScreen(),
     );
   }
 }

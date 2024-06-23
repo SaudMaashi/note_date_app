@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_date_app/box/box.dart';
 import 'package:note_date_app/providers/providers.dart';
-import 'package:note_date_app/storage.dart';
 import 'package:note_date_app/utilities/constants.dart';
 import 'package:note_date_app/widgets/add_note_button.dart';
 import 'package:note_date_app/widgets/title_note_text_fields.dart';
@@ -57,14 +55,12 @@ class _SubAddNoteScreenState extends State<SubAddNoteScreen> {
                         const SizedBox(height: 20),
                         AddNoteButton(
                           onPressed: () {
-                            setState(() {
-                              storageBox.put(
-                                  Provider.of<MyProvider>(context,
-                                          listen: false)
-                                      .uuid
-                                      .v1(),
-                                  Storage(title: "title", note: "note"));
-                            });
+                            if (Provider.of<MyProvider>(context, listen: false)
+                                .formKey
+                                .currentState!
+                                .validate()) {
+                              Navigator.pop(context);
+                            }
                           },
                         ),
                       ],

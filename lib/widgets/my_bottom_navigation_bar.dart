@@ -16,10 +16,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     return BottomNavigationBar(
       currentIndex: Provider.of<MyProvider>(context).bottomNavigationBarIndex,
       onTap: (value) {
-        setState(() {
-          Provider.of<MyProvider>(context, listen: false)
-              .bottomNavigationBarIndex = value;
-        });
+        Provider.of<MyProvider>(context, listen: false)
+            .setBottomNavigationBar(value);
       },
       backgroundColor: backgroundColor,
       selectedFontSize: 24,
