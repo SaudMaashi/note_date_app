@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:note_date_app/box/box.dart';
 import 'package:note_date_app/providers/providers.dart';
+import 'package:note_date_app/storage.dart';
 import 'package:note_date_app/utilities/constants.dart';
 import 'package:note_date_app/widgets/add_note_button.dart';
 import 'package:note_date_app/widgets/title_note_text_fields.dart';
@@ -16,7 +18,9 @@ class SubAddNoteScreen extends StatefulWidget {
 
 class _SubAddNoteScreenState extends State<SubAddNoteScreen> {
   @override
+  @override
   Widget build(BuildContext context) {
+    var myList = context.watch<MyProvider>().myList;
     return SafeArea(
       child: Form(
         key: Provider.of<MyProvider>(context).formKey,
@@ -59,6 +63,22 @@ class _SubAddNoteScreenState extends State<SubAddNoteScreen> {
                                 .formKey
                                 .currentState!
                                 .validate()) {
+                              context.read<MyProvider>().addToList(Storage(
+                                  title: Provider.of<MyProvider>(context,
+                                          listen: false)
+                                      .titleController
+                                      .text,
+                                  note: Provider.of<MyProvider>(context,
+                                          listen: false)
+                                      .noteController
+                                      .text));
+                              context.read<MyProvider>().addStorageToBox();
+                              Provider.of<MyProvider>(context, listen: false)
+                                  .titleController
+                                  .clear();
+                              Provider.of<MyProvider>(context, listen: false)
+                                  .noteController
+                                  .clear();
                               Navigator.pop(context);
                             }
                           },

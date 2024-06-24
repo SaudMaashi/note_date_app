@@ -13,8 +13,7 @@ void main() async {
   storageBox = await Hive.openBox<Storage>("Mr");
   runApp(ChangeNotifierProvider<MyProvider>(
       create: (BuildContext context) => MyProvider(),
-      child: ChangeNotifierProvider(
-          create: (context) => MyProvider(), child: const NoteDateApp())));
+      child: const NoteDateApp()));
 }
 
 class NoteDateApp extends StatelessWidget {
