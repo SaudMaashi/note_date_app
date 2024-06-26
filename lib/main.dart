@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:note_date_app/box/box.dart';
 import 'package:note_date_app/helpful_methods/general_methods.dart';
-import 'package:note_date_app/providers/providers.dart';
+import 'package:note_date_app/providers/my_provider.dart';
 import 'package:note_date_app/screens/main_screen.dart';
 import 'package:note_date_app/storage.dart';
 import 'package:provider/provider.dart';

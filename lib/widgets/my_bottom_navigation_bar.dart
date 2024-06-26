@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_date_app/providers/providers.dart';
+import 'package:note_date_app/providers/my_provider.dart';
 import 'package:note_date_app/utilities/constants.dart';
 import 'package:provider/provider.dart';
 
@@ -13,11 +13,14 @@ class MyBottomNavigationBar extends StatefulWidget {
 class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
+    var bottomNavigationBarIndex =
+        context.watch<MyProvider>().bottomNavigationBarIndex;
+
     return BottomNavigationBar(
-      currentIndex: Provider.of<MyProvider>(context).bottomNavigationBarIndex,
+      currentIndex: bottomNavigationBarIndex,
       onTap: (value) {
         Provider.of<MyProvider>(context, listen: false)
-            .setBottomNavigationBar(value);
+            .setBottomNavigationBarIndex(value);
       },
       backgroundColor: backgroundColor,
       selectedFontSize: 24,

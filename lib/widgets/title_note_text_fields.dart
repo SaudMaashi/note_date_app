@@ -1,24 +1,16 @@
-// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
-
 import 'package:flutter/material.dart';
-import 'package:note_date_app/providers/providers.dart';
+import 'package:note_date_app/providers/my_provider.dart';
 import 'package:note_date_app/utilities/constants.dart';
 import 'package:provider/provider.dart';
 
-class TitleTextField extends StatefulWidget {
-  var initialValue;
-  TitleTextField({
+class TitleTextField extends StatelessWidget {
+  const TitleTextField({
     super.key,
-    this.initialValue = "",
   });
 
   @override
-  State<TitleTextField> createState() => _TitleTextFieldState();
-}
-
-class _TitleTextFieldState extends State<TitleTextField> {
-  @override
   Widget build(BuildContext context) {
+    final titleController = Provider.of<MyProvider>(context).titleController;
     return TextFormField(
       validator: (value) {
         if (value == null || value.isEmpty) {
@@ -26,7 +18,7 @@ class _TitleTextFieldState extends State<TitleTextField> {
         }
         return null;
       },
-      controller: Provider.of<MyProvider>(context).titleController,
+      controller: titleController,
       decoration: const InputDecoration(
           hintStyle: TextStyle(color: secondaryColor),
           border: InputBorder.none,
@@ -35,20 +27,14 @@ class _TitleTextFieldState extends State<TitleTextField> {
   }
 }
 
-class NoteTextField extends StatefulWidget {
-  var initialValue;
-  NoteTextField({
+class NoteTextField extends StatelessWidget {
+  const NoteTextField({
     super.key,
-    this.initialValue = "",
   });
 
   @override
-  State<NoteTextField> createState() => _NoteTextFieldState();
-}
-
-class _NoteTextFieldState extends State<NoteTextField> {
-  @override
   Widget build(BuildContext context) {
+    final noteController = Provider.of<MyProvider>(context).noteController;
     return TextFormField(
       validator: (value) {
         if (value == null || value.isEmpty) {
@@ -56,7 +42,7 @@ class _NoteTextFieldState extends State<NoteTextField> {
         }
         return null;
       },
-      controller: Provider.of<MyProvider>(context).noteController,
+      controller: noteController,
       maxLines: 100000,
       decoration: const InputDecoration(
         hintStyle: TextStyle(color: secondaryColor),
