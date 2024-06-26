@@ -6,16 +6,16 @@ import 'package:note_date_app/widgets/add_note_button.dart';
 import 'package:note_date_app/widgets/title_note_text_fields.dart';
 import 'package:provider/provider.dart';
 
-class SubAddNoteScreen extends StatefulWidget {
-  const SubAddNoteScreen({
+class EditNoteScreen extends StatefulWidget {
+  const EditNoteScreen({
     super.key,
   });
 
   @override
-  State<SubAddNoteScreen> createState() => _SubAddNoteScreenState();
+  State<EditNoteScreen> createState() => _EditNoteScreenState();
 }
 
-class _SubAddNoteScreenState extends State<SubAddNoteScreen> {
+class _EditNoteScreenState extends State<EditNoteScreen> {
   @override
   @override
   Widget build(BuildContext context) {
@@ -23,6 +23,7 @@ class _SubAddNoteScreenState extends State<SubAddNoteScreen> {
       child: Form(
         key: Provider.of<MyProvider>(context).formKey,
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           body: Padding(
             padding: const EdgeInsets.all(16),
             child: Center(

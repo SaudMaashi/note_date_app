@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:note_date_app/box/box.dart';
 import 'package:note_date_app/providers/providers.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +12,7 @@ class NotesListView extends StatefulWidget {
 }
 
 class _NotesListViewState extends State<NotesListView> {
+  var value = 0;
   @override
   Widget build(BuildContext context) {
     var myList = context.watch<MyProvider>().myList;
@@ -26,56 +26,13 @@ class _NotesListViewState extends State<NotesListView> {
               title: Text(myList[index].title),
               subtitle: Text(myList[index].note),
               trailing: IconButton(
-                icon: const Icon(Icons.delete),
+                icon: const Icon(Icons.delete, color: Colors.red),
                 onPressed: () {
                   context.read<MyProvider>().removeFromList(myList[index]);
                   context.read<MyProvider>().removeFromBox(index);
                   context.read<MyProvider>().addStorageToBox();
                 },
               ),
-              // trailing: PopupMenuButton(
-              //   color: secondaryColor,
-              //   itemBuilder: (context) {
-              //     return [
-              //       const PopupMenuItem(
-              //         value: 1,
-              //         child: Row(
-              //           children: [
-              //             Icon(Icons.edit),
-              //             SizedBox(
-              //               width: 10,
-              //             ),
-              //             Text("Edit")
-              //           ],
-              //         ),
-              //       ),
-              //       PopupMenuItem(
-              //         value: 2,
-              //         child: Row(
-              //           children: [
-              //             IconButton(
-              //               onPressed: () {
-              //                 context
-              //                     .read<MyProvider>()
-              //                     .removeFromList(myList.elementAt(0));
-              //               },
-              //               icon: const Icon(
-              //                 Icons.delete,
-              //                 color: Colors.red,
-              //               ),
-              //             ),
-              //             const SizedBox(
-              //               width: 10,
-              //             ),
-              //             const Text("Delete")
-              //           ],
-              //         ),
-              //       ),
-              //     ];
-              //   },
-              //   offset: const Offset(0, 50),
-              //   elevation: 2,
-              // ),
             ),
           ),
         );

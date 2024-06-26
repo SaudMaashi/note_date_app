@@ -1,13 +1,22 @@
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:note_date_app/providers/providers.dart';
 import 'package:note_date_app/utilities/constants.dart';
 import 'package:provider/provider.dart';
 
-class TitleTextField extends StatelessWidget {
-  const TitleTextField({
+class TitleTextField extends StatefulWidget {
+  var initialValue;
+  TitleTextField({
     super.key,
+    this.initialValue = "",
   });
 
+  @override
+  State<TitleTextField> createState() => _TitleTextFieldState();
+}
+
+class _TitleTextFieldState extends State<TitleTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -26,11 +35,18 @@ class TitleTextField extends StatelessWidget {
   }
 }
 
-class NoteTextField extends StatelessWidget {
-  const NoteTextField({
+class NoteTextField extends StatefulWidget {
+  var initialValue;
+  NoteTextField({
     super.key,
+    this.initialValue = "",
   });
 
+  @override
+  State<NoteTextField> createState() => _NoteTextFieldState();
+}
+
+class _NoteTextFieldState extends State<NoteTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
